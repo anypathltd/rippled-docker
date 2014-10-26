@@ -1,16 +1,12 @@
 FROM ubuntu:14.10
 
-RUN apt-get -y install python-software-properties
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test
-
-
 # Add package sources
 RUN apt-get -y update
 RUN apt-get -y install python-software-properties
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 
 
-RUN apt-get update
+RUN apt-get -y update
 RUN apt-get -y upgrade
 
 
