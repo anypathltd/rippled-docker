@@ -18,7 +18,13 @@ RUN apt-get -y install pkg-config
 RUN apt-get -y install git
 RUN apt-get -y install scons
 RUN apt-get -y install ctags
-RUN add-apt-repository ppa:boost-latest/ppa && apt-get update && apt-get -y install libboost1.55-all-dev
+
+
+RUN add-apt-repository ppa:boost-latest/ppa
+RUN apt-get update 
+RUN apt-get -y install libboost1.55-all-dev
+
+
 RUN apt-get -y install protobuf-compiler
 RUN apt-get -y install libprotobuf-dev
 RUN apt-get -y install libssl-dev
