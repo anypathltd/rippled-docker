@@ -1,4 +1,4 @@
-FROM ubuntu:14.10
+FROM ubuntu:14.04
 
 # hopefully temporary work-around of http://git.io/Ke_Meg#1724 
 RUN apt-mark hold initscripts udev plymouth mountall
