@@ -1,11 +1,11 @@
-FROM ubuntu:14.04
+FROM ubuntu:14.10
 
 # hopefully temporary work-around of http://git.io/Ke_Meg#1724 
 RUN apt-mark hold initscripts udev plymouth mountall
 
 # Add package sources
 RUN apt-get -y update
-RUN apt-get -y install python-software-properties
+RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 
 
