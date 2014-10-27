@@ -9,7 +9,7 @@ RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 
 
-RUN apt-get update
+RUN apt-get -y update
 RUN apt-get -y upgrade
 
 
@@ -21,7 +21,7 @@ RUN apt-get -y install ctags
 
 
 RUN add-apt-repository ppa:boost-latest/ppa
-RUN apt-get update 
+RUN apt-get -y update 
 RUN apt-get -y install libboost1.55-all-dev
 
 
