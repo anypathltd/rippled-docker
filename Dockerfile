@@ -50,7 +50,9 @@ EXPOSE 6006
 # Share the ripple data directory
 VOLUME /var/lib/rippled
 
+RUN mkdir /opt/rippled/build/db
+
 # Add custom config
 ADD rippled.cfg /opt/rippled/build/rippled.cfg
 
-CMD ["/opt/rippled/build/rippled", "--net"]
+CMD ["/opt/rippled/build/rippled", "--net", "--conf", "/opt/rippled/build/rippled.cfg"]
