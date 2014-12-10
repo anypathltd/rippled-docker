@@ -13,7 +13,7 @@ RUN /build/prepare.sh
 # Add package sources
 # Install dependencies for mastercore (mscore-0.0.8/doc/build-unix.md)
 RUN apt-get -y update && apt-get -y install software-properties-common
-RUN add-apt-repository ppa:bitcoin/bitcoin && add-apt-repository ppa:ubuntu-toolchain-r/test && add-apt-repository ppa:boost-latest/ppa
+RUN add-apt-repository ppa:bitcoin/bitcoin && add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get -y update && apt-get install \
   install pkg-config \
   git \
