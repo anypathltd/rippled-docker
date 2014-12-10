@@ -26,6 +26,7 @@ RUN apt-get -y install ctags
 
 
 RUN add-apt-repository ppa:boost-latest/ppa
+RUN apt-get update
 RUN apt-get -y install libboost1.55-all-dev
 
 
