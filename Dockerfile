@@ -7,6 +7,7 @@ ENV HOME /root
 RUN mkdir /build
 ADD . /build
 
+RUN chmod +x /build/prepare.sh
 RUN /build/prepare.sh
 
 # Add package sources
