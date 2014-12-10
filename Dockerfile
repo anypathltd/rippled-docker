@@ -3,13 +3,6 @@ FROM ubuntu:14.04
 # hopefully temporary work-around of http://git.io/Ke_Meg#1724 
 RUN apt-mark hold initscripts udev plymouth mountall
 
-ENV HOME /root
-RUN mkdir /build
-ADD . /build
-
-RUN chmod +x /build/prepare.sh
-RUN /build/prepare.sh
-
 # Add package sources
 RUN apt-get -y update
 RUN apt-get -y install software-properties-common
