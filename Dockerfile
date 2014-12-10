@@ -3,8 +3,9 @@ FROM ubuntu:14.04
 # hopefully temporary work-around of http://git.io/Ke_Meg#1724 
 RUN apt-mark hold initscripts udev plymouth mountall
 
+RUN prepare.sh
+
 # Add package sources
-RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 RUN apt-get -y update
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
