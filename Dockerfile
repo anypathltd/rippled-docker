@@ -4,14 +4,13 @@ FROM ubuntu:14.04
 RUN apt-mark hold initscripts udev plymouth mountall
 
 # Add package sources
+RUN echo "deb http://archive.ubuntu.com/ubuntu trusty main universe" > /etc/apt/sources.list
 RUN apt-get -y update
 RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 
-
 RUN apt-get -y update
 RUN apt-get -y upgrade
-
 
 # Various dependencies
 RUN apt-get -y install pkg-config
