@@ -11,26 +11,22 @@ RUN chmod +x /build/prepare.sh
 RUN /build/prepare.sh
 
 # Add package sources
-RUN apt-get -y update
-RUN apt-get -y install software-properties-common
-RUN add-apt-repository ppa:ubuntu-toolchain-r/test
-RUN add-apt-repository ppa:boost-latest/ppa
-
-RUN apt-get -y update
-RUN apt-get -y upgrade
-
-# Various dependencies
-RUN apt-get -y install pkg-config
-RUN apt-get -y install git
-RUN apt-get -y install scons
-RUN apt-get -y install ctags
-RUN apt-get -y install libboost1.55-all-dev
-RUN apt-get -y install protobuf-compiler
-RUN apt-get -y install libprotobuf-dev
-RUN apt-get -y install libssl-dev
+# Install dependencies for mastercore (mscore-0.0.8/doc/build-unix.md)
+RUN apt-get -y update && apt-get -y install software-properties-common
+RUN add-apt-repository ppa:bitcoin/bitcoin && add-apt-repository ppa:ubuntu-toolchain-r/test && add-apt-repository ppa:boost-latest/ppa
+RUN apt-get -y update && apt-get install \
+  install pkg-config \
+  git \
+  scons \
+  ctags \
+  libboost1.55-all-dev \
+  protobuf-compiler \
+  libprotobuf-dev \
+  libssl-dev \
+  gcc-4.9 \
+  g++-4.9 \
 
 # Upgrade to gcc-4.9 (after some other package pulls in gcc)
-RUN apt-get -y install gcc-4.9 g++-4.9
 RUN rm -f /usr/bin/gcc && ln -s /usr/bin/gcc-4.9 /usr/bin/gcc
 RUN rm -f /usr/bin/g++ && ln -s /usr/bin/g++-4.9 /usr/bin/g++
 
