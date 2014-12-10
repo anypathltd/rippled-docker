@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 # hopefully temporary work-around of http://git.io/Ke_Meg#1724 
 RUN apt-mark hold initscripts udev plymouth mountall
 
-RUN prepare.sh
+RUN ./prepare.sh
 
 # Add package sources
 RUN apt-get -y update
