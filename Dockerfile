@@ -17,8 +17,8 @@ RUN apt-get -y install software-properties-common
 RUN add-apt-repository ppa:bitcoin/bitcoin
 RUN add-apt-repository ppa:ubuntu-toolchain-r/test
 RUN apt-get update
-RUN apt-get install \
-    install pkg-config \
+RUN apt-get -y install \
+    pkg-config \
     git \
     scons \
     ctags \
