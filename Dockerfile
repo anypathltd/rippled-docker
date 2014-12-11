@@ -12,23 +12,25 @@ RUN /build/prepare.sh
 
 # Add package sources
 # Install dependencies for mastercore (mscore-0.0.8/doc/build-unix.md)
-RUN apt-get -y update && apt-get -y install software-properties-common
-RUN add-apt-repository ppa:bitcoin/bitcoin && add-apt-repository ppa:ubuntu-toolchain-r/test
-RUN apt-get -y update && apt-get install \
-  install pkg-config \
-  git \
-  scons \
-  ctags \
-  libboost1.55-all-dev \
-  protobuf-compiler \
-  libprotobuf-dev \
-  libssl-dev \
-  gcc-4.9 \
-  g++-4.9 \
+RUN apt-get update && apt-get install software-properties-common
+RUN add-apt-repository ppa:bitcoin/bitcoin
+RUN add-apt-repository ppa:ubuntu-toolchain-r/test
+RUN apt-get update
+RUN apt-get install \
+    install pkg-config \
+    git \
+    scons \
+    ctags \
+    libboost1.55-all-dev \
+    protobuf-compiler \
+    libprotobuf-dev \
+    libssl-dev \
+    gcc-4.9 \
+    g++-4.9
 
 # Upgrade to gcc-4.9 (after some other package pulls in gcc)
-RUN rm -f /usr/bin/gcc && ln -s /usr/bin/gcc-4.9 /usr/bin/gcc
-RUN rm -f /usr/bin/g++ && ln -s /usr/bin/g++-4.9 /usr/bin/g++
+#RUN rm -f /usr/bin/gcc && ln -s /usr/bin/gcc-4.9 /usr/bin/gcc
+#RUN rm -f /usr/bin/g++ && ln -s /usr/bin/g++-4.9 /usr/bin/g++
 
 # Checkout the ripple source
 RUN git clone https://github.com/ripple/rippled.git /opt/rippled -b develop
